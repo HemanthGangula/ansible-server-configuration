@@ -1,0 +1,18 @@
+---
+# Update the local package cache
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+# Install MySQL Server
+- name: Install MySQL Server
+  apt:
+    name: mysql-server
+    state: present
+
+# Ensure MySQL service is running and enabled
+- name: Ensure MySQL service is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
